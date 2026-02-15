@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RECONIX PROJECT</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#0a0f1f;
+    --glass:rgba(255,255,255,0.08);
+    --border:rgba(255,255,255,0.18);
+    --text:#ffffff;
+    --accent2:#00e0ff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:var(--bg);color:var(--text);overflow-x:hidden;}
+
+body::before, body::after{
+    content:"";
+    position:fixed;
+    width:600px;height:600px;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:-1;
+    animation:float 12s infinite alternate ease-in-out;
+}
+body::before{background:#6c5cff;top:-100px;left:-100px;}
+body::after{background:#00e0ff;bottom:-100px;right:-100px;}
+@keyframes float{from{transform:translateY(0);}to{transform:translateY(80px);}}
+
+nav{
+    position:fixed;width:100%;padding:20px 8%;
+    display:flex;justify-content:space-between;align-items:center;
+    backdrop-filter:blur(25px);
+    background:rgba(20,25,45,0.6);
+    border-bottom:1px solid var(--border);
+    z-index:1000;
+}
+nav h1{font-weight:800;}
+nav ul{display:flex;list-style:none;gap:30px;}
+nav a{text-decoration:none;color:white;opacity:0.8;transition:.3s;}
+nav a:hover{opacity:1;color:var(--accent2);}
+
+.glass-btn{
+    padding:14px 35px;border-radius:30px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid var(--border);
+    color:white;text-decoration:none;font-weight:600;
+    transition:.3s;
+}
+.glass-btn:hover{
+    border-color:var(--accent2);
+    box-shadow:0 0 20px var(--accent2);
+}
+
+.hero{padding:180px 8% 120px;text-align:center;}
+.hero h2{font-size:60px;font-weight:800;margin-bottom:25px;}
+.hero p{font-size:18px;opacity:0.75;max-width:650px;margin:auto;margin-bottom:40px;}
+
+.stats{display:flex;justify-content:center;gap:80px;flex-wrap:wrap;margin-top:60px;text-align:center;}
+.stat{font-size:34px;font-weight:800;}
+
+.section{padding:100px 8%;}
+.section-title{text-align:center;font-size:42px;margin-bottom:60px;font-weight:800;}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:35px;}
+
+.glass{
+    background:var(--glass);
+    backdrop-filter:blur(25px);
+    border:1px solid var(--border);
+    border-radius:30px;
+    padding:40px;
+    transition:.3s;
+}
+.glass:hover{transform:translateY(-8px);border-color:var(--accent2);}
+
+/* Reviews */
+.reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+.review-card{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:200px;
+}
+.review-card p{opacity:0.85;margin-bottom:20px;}
+.review-author{
+    display:flex;
+    flex-direction:column;
+    margin-top:15px;
+}
+.review-author strong{
+    font-weight:600;
+}
+.review-author span{
+    font-size:13px;
+    opacity:0.6;
+    margin-top:3px;
+}
+
+/* Online block */
+.online-card{padding:40px;}
+.online-tabs{
+    display:flex;
+    gap:40px;
+    margin-bottom:30px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.tab{
+    padding-bottom:12px;
+    cursor:pointer;
+    opacity:0.6;
+    font-weight:600;
+}
+.tab.active{
+    opacity:1;
+    border-bottom:2px solid var(--accent2);
+}
+.online-content p{line-height:1.8;opacity:0.85;}
+.online-count{margin-top:25px;opacity:0.6;font-size:14px;}
+.highlight{color:#ff6b9d;font-weight:600;}
+
+footer{text-align:center;padding:60px 8%;opacity:0.6;border-top:1px solid var(--border);}
+
+@media(max-width:1100px){
+.reviews-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+.reviews-grid{grid-template-columns:1fr;}
+.hero h2{font-size:38px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <h1>RCP</h1>
+    <ul>
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">Тарифы</a></li>
+        <li><a href="#">Специалисты</a></li>
+        <li><a href="#">Блог</a></li>
+        <li><a href="#">Документация</a></li>
+    </ul>
+    <a href="#" class="glass-btn">Вход</a>
+</nav>
+
+<section class="hero">
+    <h2>RECONIX PROJECT</h2>
+    <p>The Open Source Intelligence bot in Telegram is an open data analysis tool.</p>
+    <a href="#" class="glass-btn">Попробовать бесплатно</a>
+
+    <div class="stats">
+        <div><div class="stat">75 000+</div><div>Пользователей</div></div>
+        <div><div class="stat">2.4M+</div><div>Запросов</div></div>
+        <div><div class="stat">99.99%</div><div>Аптайм</div></div>
+    </div>
+</section>
+
+<section class="section advantages">
+    <h2 class="section-title">Почему выбирают RECONIX</h2>
+    <div class="grid">
+
+        <div class="adv-item glass">
+            <h3>🧠 OSINT-алгоритмы</h3>
+            <p>Глубокий анализ открытых источников с интеллектуальной фильтрацией данных.</p>
+        </div>
+
+        <div class="adv-item glass">
+            <h3>⚡ Реальное время</h3>
+            <p>Получайте информацию мгновенно без ожидания и очередей.</p>
+        </div>
+
+        <div class="adv-item glass">
+            <h3>🔐 Конфиденциальность</h3>
+            <p>Все запросы обрабатываются безопасно и не сохраняются без необходимости.</p>
+        </div>
+
+        <div class="adv-item glass">
+            <h3>📡 Работа с Telegram</h3>
+            <p>Анализ пользователей, групп и каналов напрямую через API.</p>
+        </div>
+
+        <div class="adv-item glass">
+            <h3>📊 Детализированные отчёты</h3>
+            <p>Структурированные результаты с удобным представлением данных.</p>
+        </div>
+
+        <div class="adv-item glass">
+            <h3>🚀 Масштабируемость</h3>
+            <p>Подходит как для частного использования, так и для бизнеса.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Отзывы пользователей</h2>
+<div class="reviews-grid">
+  <div class="glass review-card">
+    <p>Лучший OSINT-инструмент для Telegram.</p>
+    <div class="review-author"><strong>@cyber_analyst</strong><span>OSINT специалист</span></div>
+  </div>
+  <div class="glass review-card">
+    <p>Очень быстрые ответы и удобная структура.</p>
+    <div class="review-author"><strong>Александр М.</strong><span>Security Team Lead</span></div>
+  </div>
+  <div class="glass review-card">
+    <p>API интеграция работает стабильно.</p>
+    <div class="review-author"><strong>DevOps Engineer</strong><span>IT компания</span></div>
+  </div>
+  <div class="glass review-card">
+    <p>Мощный инструмент для анализа Telegram.</p>
+    <div class="review-author"><strong>Researcher</strong><span>Digital Intelligence</span></div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Сейчас онлайн</h2>
+<div class="online-card glass">
+
+<div class="online-tabs">
+<div class="tab active" onclick="switchTab(event,'users')">Пользователи</div>
+<div class="tab" onclick="switchTab(event,'team')">Команда форума</div>
+</div>
+
+<div class="online-content" id="users">
+<p>
+STEPAN1337, krestovw, katy2013,
+<span class="highlight">Bereket</span>,
+Doker007, hatelove, emineym
+</p>
+<div class="online-count">
+Всего: 36 (пользователей: 35, гостей: 1)
+</div>
+</div>
+
+<div class="online-content" id="team" style="display:none;">
+<p>Admin, Moderator1, SupportTeam</p>
+<div class="online-count">
+Всего: 3 участника команды
+</div>
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 RECONIX PROJECT
+</footer>
+
+<script>
+function switchTab(event,tab){
+document.querySelectorAll('.online-content').forEach(el=>el.style.display='none');
+document.querySelectorAll('.tab').forEach(el=>el.classList.remove('active'));
+document.getElementById(tab).style.display='block';
+event.target.classList.add('active');
+}
+</script>
+
+</body>
+               </html>
