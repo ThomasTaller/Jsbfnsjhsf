@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тарифы | RECONIX PROJECT</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#0a0f1f;
+    --glass:rgba(255,255,255,0.08);
+    --border:rgba(255,255,255,0.18);
+    --text:#ffffff;
+    --accent1:#6c5cff;
+    --accent2:#00e0ff;
+}
+
+*{margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif;}
+body{background:var(--bg); color:var(--text); overflow-x:hidden;}
+
+body::before, body::after{
+    content:"";
+    position:fixed;
+    width:600px; height:600px;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:-1;
+    animation:float 12s infinite alternate ease-in-out;
+}
+body::before{background:#6c5cff; top:-100px; left:-100px;}
+body::after{background:#00e0ff; bottom:-100px; right:-100px;}
+@keyframes float{from{transform:translateY(0px);} to{transform:translateY(80px);}}
+
+/* NAV */
+nav{
+    position:fixed;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(25px) saturate(180%);
+    background:rgba(20,25,45,0.6);
+    border-bottom:1px solid var(--border);
+    z-index:1000;
+}
+
+nav h1{font-weight:800;}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    opacity:0.8;
+    color:white;
+    transition:.3s;
+}
+
+nav a:hover{
+    opacity:1;
+    color:var(--accent2);
+}
+
+nav a.active{
+    color:var(--accent2);
+    opacity:1;
+}
+
+/* HERO */
+.hero{
+    padding:160px 8% 80px;
+    text-align:center;
+}
+
+.hero h2{
+    font-size:50px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.hero p{
+    opacity:0.75;
+    max-width:600px;
+    margin:auto;
+}
+
+/* PRICING */
+.section{
+    padding:80px 8%;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:35px;
+}
+
+.card{
+    background:var(--glass);
+    backdrop-filter:blur(25px) saturate(160%);
+    border:1px solid var(--border);
+    border-radius:30px;
+    padding:40px;
+    text-align:center;
+    transition:.3s;
+    position:relative;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:var(--accent2);
+}
+
+.card h3{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.price{
+    font-size:40px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.features{
+    list-style:none;
+    margin-bottom:30px;
+    opacity:0.8;
+}
+
+.features li{
+    margin:8px 0;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 30px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.1);
+    border:1px solid var(--border);
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:var(--accent2);
+    border-color:var(--accent2);
+}
+
+/* POPULAR */
+.popular{
+    border:1px solid var(--accent2);
+    box-shadow:0 0 30px rgba(0,224,255,0.3);
+}
+
+.badge{
+    position:absolute;
+    top:-15px;
+    right:20px;
+    background:var(--accent2);
+    color:#000;
+    font-weight:700;
+    font-size:12px;
+    padding:6px 12px;
+    border-radius:20px;
+}
+
+footer{
+    text-align:center;
+    padding:60px 8%;
+    opacity:0.6;
+    border-top:1px solid var(--border);
+    margin-top:80px;
+}
+
+@media(max-width:768px){
+    .hero h2{font-size:32px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <h1>RCP</h1>
+    <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="pricing.html" class="active">Тарифы</a></li>
+        <li><a href="index.html#specialists">Специалисты</a></li>
+        <li><a href="blog.html">Блог</a></li>
+        <li><a href="documentation.html">Документация</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h2>Тарифные планы</h2>
+    <p>Выберите подходящий план для работы с RECONIX.</p>
+</section>
+
+<section class="section">
+    <div class="grid">
+
+        <div class="card">
+            <h3>Free</h3>
+            <div class="price">$0</div>
+            <ul class="features">
+                <li>Ограниченные запросы</li>
+                <li>Базовый доступ</li>
+                <li>Email поддержка</li>
+            </ul>
+            <a href="#" class="btn">Выбрать</a>
+        </div>
+
+        <div class="card">
+            <h3>Go</h3>
+            <div class="price">$7</div>
+            <ul class="features">
+                <li>Расширенные лимиты</li>
+                <li>Приоритетные запросы</li>
+                <li>Поддержка 24/7</li>
+            </ul>
+            <a href="#" class="btn">Выбрать</a>
+        </div>
+
+        <div class="card popular">
+            <div class="badge">ПОПУЛЯРНЫЙ</div>
+            <h3>Plus</h3>
+            <div class="price">$20</div>
+            <ul class="features">
+                <li>Максимальные лимиты</li>
+                <li>API доступ</li>
+                <li>Приоритетная поддержка</li>
+                <li>Расширенная аналитика</li>
+            </ul>
+            <a href="#" class="btn">Выбрать</a>
+        </div>
+
+        <div class="card">
+            <h3>Pro</h3>
+            <div class="price">$200</div>
+            <ul class="features">
+                <li>Безлимитные запросы</li>
+                <li>Полный API доступ</li>
+                <li>Персональный менеджер</li>
+                <li>Бизнес интеграции</li>
+            </ul>
+            <a href="#" class="btn">Выбрать</a>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 RECONIX PROJECT. Тарифы.
+</footer>
+
+</body>
+          </html>
